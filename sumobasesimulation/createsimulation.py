@@ -12,6 +12,7 @@ class CreateSimulation:
 
     def __init__(self,args):
 
+        self.emission_output = "../xml/scenario1/emission_output.xml"
         self.sumo_config_path = args.sumo_config_path
         self.sumo_env = args.sumo_cmd_env
         self.sumo_home_path = ""
@@ -30,6 +31,7 @@ class CreateSimulation:
         os.system(self.sumo_home_path + "/randomTrips.py -n "+self.network_path+" -o "+self.route_path+" --begin 0 --end 1 --period 1 --flows " + str(vehicles))
         os.system("jtrrouter --route-files="+self.route_path+" --net-file="+self.network_path+" --output-file="+self.grid_route+" --begin 0 --end 10000 --accept-all-destinations")
         os.system(self.sumo_home_path + "/generateContinuousRerouters.py -n "+self.network_path+" --end 10000 -o "+self.reroute_path)
+        print(self.config_path)
         tree = ET.parse(self.config_path)
         root = tree.getroot()
         for child in root:
