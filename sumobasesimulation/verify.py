@@ -1,11 +1,16 @@
 import os, sys
 import argparse
+from typing import Any
+
 import traci
 import numpy as np
 from tf_agents.environments import py_environment
 from tf_agents.specs import array_spec
 from tf_agents.trajectories import time_step as ts
 import tensorflow
+from tf_agents.typing import types
+from tf_agents.environments import validate_py_environment
+
 
 def parseChar(char):
     """
@@ -64,34 +69,34 @@ class test():
 class SumoBaseSimulation(py_environment.PyEnvironment):
 
     def __init__(self):
-        print('__init__')
         args = getArgs()
-        print(args)
         self.sumo_config_path = args.sumo_config_path
         self.sumo_env = args.sumo_cmd_env
         self.all_lanes_density = 0
-        self._action_spec = array_spec.BoundedArraySpec(shape = (), dtype = np.float32, minimum = 0, maximum = 1, name = 'action')
-        self._observation_spec = array_spec.BoundedArraySpec(
-            shape=(25, 20), dtype=np.int32, minimum=0, name='observation')
-        self._state = np.zeros((25, 20))
+        self._action_spec = array_spec.BoundedArraySpec(shape=(), dtype=np.int32, minimum=0, maximum=3, name='action')
+        self._observation_spec = array_spec.BoundedArraySpec(shape=(500, ), dtype=np.int32, minimum=0, name='observation')
+        self._state =np.zeros(500)
+
         self._episode_ended = False
-        self.maxSteps = 1000
+        self.maxSteps = 10
         self.simulationSteps = self.maxSteps
 
     def action_spec(self):
         return self._action_spec
 
     def observation_spec(self):
+        print('observation_spec')
+        print(self._observation_spec.shape)
         return self._observation_spec
 
     def _reset(self):
         if self.simulationSteps<self.maxSteps:
             traci.close()
-        self._state = np.zeros((25, 20))
+        self._state = np.zeros(500)
         self._episode_ended = False
         self.all_lanes_density = []
-        self.simulationSteps = 1000
-        return ts.restart(np.array([self._state], dtype=np.int32))
+        self.simulationSteps = 10
+        return ts.restart(np.array(self._state, dtype=np.int32))
 
     def calc_lane_density(self, laneID):
         num = traci.lane.getLastStepVehicleNumber(laneID)
@@ -112,7 +117,6 @@ class SumoBaseSimulation(py_environment.PyEnvironment):
         :return: the board state. The lines represent the respective intersection. The columns represent the number of cars
         that are 100 meters before the intersection at the respective traffic light.
         """
-
         junctions = np.zeros((25, 20))
         for vehicle in traci.vehicle.getIDList():
             next_tls = traci.vehicle.getNextTLS(vehicle)
@@ -125,7 +129,7 @@ class SumoBaseSimulation(py_environment.PyEnvironment):
                     junctionIndex = self.junctionIDListToIndex(next_tls[0][0])
                     tLIndex = sumoLaneId.upcommingWaiting() * 5 + self.getTLSummand(signal, sumoLaneId)
                     junctions[junctionIndex][tLIndex] += 1
-        return junctions
+        return junctions.flatten()
 
     def junctionIDListToIndex(self, junction):
         """
@@ -177,16 +181,26 @@ class SumoBaseSimulation(py_environment.PyEnvironment):
 
         tls = traci.trafficlight.getIDList()
         traci.trafficlight.setPhase(tls[5], action)
-
+        print( self.getBoardState().shape)
+        self._state= self.getBoardState()
         self.simulationSteps -= 1
         self._episode_ended = self.simulationSteps == 0
 
         reward = self.all_lanes_density=np.mean(self.calc_density())
         if self._episode_ended:
-            return ts.termination(np.array([self._state], dtype=np.int32), reward=reward)
+            return ts.termination(np.array(self._state, dtype=np.int32), reward)
         else:
-            return ts.transition(
-                np.array([self._state], dtype=np.int32), reward=reward, discount=1.0)
+            return ts.transition(np.array(self._state, dtype=np.int32), reward=0, discount=0.9)
+
+    def get_info(self) -> types.NestedArray:
+        print('get_info')
+        pass
+
+    def get_state(self) -> Any:
+        return self._state
+
+    def set_state(self, state: Any) -> None:
+        self._state=state
 
     def startSimulation(self):
 
@@ -210,3 +224,4 @@ def getArgs():
 
 if __name__ == '__main__':
     env = SumoBaseSimulation()
+    validate_py_environment(env, episodes=5)
