@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2022-07-11 15:04:59 by Eclipse SUMO jtrrouter Version v1_12_0+1888-b2552f42826
+<!-- generated on 2022-09-28 14:48:18 by Eclipse SUMO jtrrouter Version 1.14.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/jtrrouterConfiguration.xsd">
 
     <input>
@@ -13,13 +13,12 @@
     </output>
 
     <processing>
-        <no-internal-links value="true"/>
         <accept-all-destinations value="true"/>
     </processing>
 
     <time>
         <begin value="0"/>
-        <end value="10000"/>
+        <end value="10"/>
     </time>
 
 </configuration>

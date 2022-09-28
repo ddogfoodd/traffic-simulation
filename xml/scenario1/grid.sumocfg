@@ -2,14 +2,16 @@
   <input>
     <net-file value="grid.net.xml" />
     <route-files value="grid.rou.xml" />
-    <additional-files value="rerouter.add.xml" />
+    <additional-files value="rerouter.add.xml, edgeData.add.xml" />
   </input>
   <time>
     <begin value="0" />
-    <end value="10000" />
+    <end value="1000" />
   </time>
    <output>
      <fcd-output value="grid.output500.xml" />
    </output>
-<!--  <time-to-teleport value="-1" />-->
-</configuration>q
+   <additional>
+     <laneData id="11111111" file="C:\Users\Philipp\OneDrive\Dokumente\GitHub\ba-philipp-grill\xml\scenario1\meandata.xml" />
+   </additional>
+</configuration>
