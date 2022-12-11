@@ -50,7 +50,7 @@ def get_safe_phases(net_xml_path: str, junction_id: str):
     non_foes_ind = [np.where(foes[i] == 0)[0] for i in range(n_tls)]
     
     # placeholder to collect all safe_phases (safe phase combinations) during computation
-    total_safe_phases = []
+    total_safe_phases = [[i] for i in range(n_tls)]
     
     # for each tls / tls controlled connection list all others that are no foes of each other
     # this combines all safe connection combinations which are directly readable from the foe matrix and which don't need further computation
