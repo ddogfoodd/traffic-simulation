@@ -3,7 +3,7 @@ This is the traffic-simulation repository of the OvGU AILab.
 It contains a collection of tools and documentation regarding traffic simulation using the [Eclipse SUMO (Simulation of Urban MObility) framework](https://github.com/eclipse/sumo).
 
 ### Purpose:
-This repo collects tools/scripts/documentation used in our research. It mainly contains Python ↔︎ SUMO interactions on a higher level than SUMO built-in tools like [TraCI](https://sumo.dlr.de/docs/TraCI.html).
+This repo collects tools/scripts/documentation used in our research. It mainly contains Python ↔︎ SUMO interactions on a higher level than regular SUMO interfaces like [TraCI](https://sumo.dlr.de/docs/TraCI.html).
   
 ### Install and setup SUMO:
 To install and test SUMO refer to our [installation/setup doc](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/docs/sumo/installation_setup.md).
