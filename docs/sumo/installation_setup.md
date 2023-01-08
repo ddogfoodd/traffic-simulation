@@ -41,6 +41,7 @@ In the above script you can change the following parameter to run it either in G
 > --sumo_cmd_env  , values = [sumo,sumo-gui]
 
 ## SUMO file structure
+The most important files in a SUMO simulation are the following.
 See [`xml` directory](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/tree/main/xml) for examples.
 
 | File | Purpose |
@@ -49,4 +50,3 @@ See [`xml` directory](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simula
 | grid.rou.xml | Vehicle Route File  |
 | grid.sumocfg | Main config file which SUMO will use to run the simulation  |
 | route.xml | Route flow definitions  |
-| grid.rou.xml | Vehicle Route File  |
