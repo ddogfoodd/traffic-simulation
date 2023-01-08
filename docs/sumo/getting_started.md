@@ -6,7 +6,21 @@ Installation of SUMO is different for different platforms (Windows, macOS and Li
 [![](https://fileinfo.com/img/icons/files/128/sumocfg-11490.png)](https://sumo.dlr.de/docs/Installing/index.html)  
 
 ### Installation instructions for OVGU IKS cluster remote machines
-**TODO**
+If you want to use SUMO on a remote machine of the OVGU IKS cluster, you might not have the permissions to follow SUMO's [Linux installation instructions](https://sumo.dlr.de/docs/Installing/index.html#linux).  
+Instead you can install SUMO using the Python package manager `pip` without root permissions.  
+
+```sh
+python3 -m pip install sumo
+```
+
+If further SUMO libraries are required, they can also be installed via `pip`.
+See examples for `traci` and `libsumo` below.
+```sh
+python3 -m pip install traci
+```
+```sh
+python3 -m pip install libsumo
+```
 
 ### (Optional) Test and verify SUMO
 To test if installed SUMO is working as intended you can run the scripts in the [`sumobasesimulation` directory](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/tree/main/sumobasesimulation).  
