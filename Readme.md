@@ -15,3 +15,8 @@ To install and test SUMO refer to our [installation/setup doc](https://code.ovgu
 
 ### Docs:
 - [OSM Web Wizard for SUMO tutorial](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/docs/sumo/osmWebWizard.md) - Tutorial on how to use OSMWebWizard to convert OpenStreetMaps into SUMO files
+
+### Contributing:
+Feel free to contribute to this repo by adding more tools or docs or even fix bugs or expand functionality in existing tools.  
+Please create a new branch and work on there. When finished, create a merge request.  
+If you don't want to code, we also appreciate contributions in the form of ideas or feature requests. Just create an issue.
