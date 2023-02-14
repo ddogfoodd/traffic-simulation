@@ -1,3 +1,12 @@
+"""
+Helper functions building on TraCI
+"""
+
+# import traci
+import os, sys
+if sys.platform.startswith("darwin"):
+    #! default MacOS path of sumo tools
+    sys.path.append(os.path.join("/usr", "local", "opt", "sumo", "share", "sumo", "tools"))
 import traci
 import numpy as np
 import inspect
@@ -7,15 +16,39 @@ GET LANE INSIGHTS
 ---
 Collection of functions that give insight about lanes.
 """
-# calculate the density of a given lane
-# i.e. number of vehicles in relation to the lane length
 def get_lane_density(laneID):
+    """Calculate the density of a given lane, 
+    i.e. number of vehicles in relation to the lane length.
+
+    Parameters
+    ----------
+    laneID : str
+        ID of the SUMO lane for which to calculate the density.
+        
+    Returns
+    -------
+    float
+        Lane density.
+    """
     num = traci.lane.getLastStepVehicleNumber(laneID)
     density = num / traci.lane.getLength(laneID)
     return density
 
-# for a given tls return the average lane density for each controlled lane
 def get_state(tlsID):
+    """For a given tls return the average lane density for each 
+    controlled lane, 
+    i.e. number of vehicles in relation to the lane length.
+
+    Parameters
+    ----------
+    tlsID : str
+        ID of the SUMO traffic light system for which lanes to calculate the densities.
+        
+    Returns
+    -------
+    list
+        List of lane densities.
+    """
     # copy of another function for simple use
     def get_lane_density(laneID):
         num = traci.lane.getLastStepVehicleNumber(laneID)
@@ -40,6 +73,18 @@ def get_state(tlsID):
 
 # for each given lane, get number of vehicles in those lanes
 def get_vehicle_numbers(lanes):
+    """For each given lane return the number of vehicles in those lanes.
+
+    Parameters
+    ----------
+    lanes : list
+        IDs of the SUMO lanes for which to count the number of vehicles.
+        
+    Returns
+    -------
+    dict
+        Dictionary where lanes are the keys and number of vehicles on those lanes are the values.
+    """
     vehicle_per_lane = dict()
     for l in lanes:
         vehicle_per_lane[l] = 0
