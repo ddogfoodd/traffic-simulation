@@ -7,7 +7,7 @@ Tools Usage
 ==============================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    get_safe_phases
