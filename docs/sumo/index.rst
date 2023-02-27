@@ -3,20 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to traffic-simulation's documentation!
+SUMO Usage
 ==============================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   sumo/index
-   tools/index
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   installation_setup
+   osmWebWizard

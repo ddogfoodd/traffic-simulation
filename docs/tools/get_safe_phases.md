@@ -1,6 +1,6 @@
-# Doc for tool script get_safe_phases.py
+# get_safe_phases.py
 
-### Requirement versions:
+## Requirement versions:
 Note that the following are the versions that I developed this script with. It might work with different versions.
 
 - Python version 3.9.1
