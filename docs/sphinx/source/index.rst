@@ -10,6 +10,8 @@ Welcome to traffic-simulation's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   ../../sumo/installation_setup
+   ../../sumo/osmWebWizard
 
 
 Indices and tables
