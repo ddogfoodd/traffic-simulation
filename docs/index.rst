@@ -12,11 +12,3 @@ Welcome to traffic-simulation's documentation!
 
    sumo/index
    tools/index
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
