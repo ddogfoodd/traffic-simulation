@@ -154,6 +154,3 @@ Temporary Items
 
 # IDE settings
 .vscode
-
-# sphinx build
-docs/_build
