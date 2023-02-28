@@ -17,6 +17,7 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="tools" href="../modules.html" />
     <link rel="prev" title="Tools Usage" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -48,11 +49,11 @@
 <section id="what-it-does">
 <h2>What it does:<a class="headerlink" href="#what-it-does" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">get_safe_phases()</span></code> is a Python function that returns to find all combinations of connections in a junction that can share green signals without leading to collisions.<br />
-To do so it uses the xml file of a SUMO net and mainly reads and intersects the lists of foes. Foes of a connection are other connections that could lead to collisions if they share green phases.</p>
+To do so, it uses the XML file of a SUMO net and mainly reads and intersects the lists of foes. Foes of a connection are other connections that could lead to collisions if they share green phases.</p>
 </section>
 <section id="why-it-does-it">
 <h2>Why it does it:<a class="headerlink" href="#why-it-does-it" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">get_safe_phases()</span></code> function returns the pool of possible safe green phase combinations. The next big goal would be to choose some combinations out of the pool so that the traffic can be optimized i.e. calculate not only safe but also efficient phases.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_safe_phases()</span></code> function returns the pool of possible safe green phase combinations. The next big goal would be to choose some combinations out of the pool so that the traffic can be optimized, i.e. calculate not only safe but also efficient phases.</p>
 </section>
 <section id="usage">
 <h2>Usage:<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
@@ -70,13 +71,13 @@ To do so it uses the xml file of a SUMO net and mainly reads and intersects the 
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">net_xml_path</span></code></p></td>
 <td><p>1</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
-<td><p>Path to the SUMO net xml file in which the junction can be found</p></td>
+<td><p>Path to the SUMO net XML file in which the junction can be found</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;/Users/jost/magdeburg_net.xml&quot;</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">junction_id</span></code></p></td>
 <td><p>2</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
-<td><p>ID of the junction for which to calculate, usually found in net xml file or SUMO</p></td>
+<td><p>ID of the junction for which to calculate, usually found in net XML file or SUMO</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;junction001&quot;</span></code></p></td>
 </tr>
 </tbody>
@@ -100,7 +101,7 @@ To do so it uses the xml file of a SUMO net and mainly reads and intersects the 
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">total_safe_phases</span></code></p></td>
 <td><p>2</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
-<td><p>All safe phase combinations of the given junction. Given as list of lists containing ints. The outer list contains all the safe combinations of phases whereas the inner lists correspond to the combinations itself and contain the ints which resemble the indices of the connections.</p></td>
+<td><p>All safe phase combinations of the given junction. Given as list of lists containing ints. The outer list contains all the safe combinations of phases whereas, the inner lists correspond to the combinations itself and contain the ints which resemble the indices of the connections.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[[1],</span> <span class="pre">[2],</span> <span class="pre">[3],</span> <span class="pre">[4]</span> <span class="pre">[1,</span> <span class="pre">3],</span> <span class="pre">[1,</span> <span class="pre">4],</span> <span class="pre">[2,</span> <span class="pre">4],</span> <span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">4]]</span></code></p></td>
 </tr>
 </tbody>
@@ -113,11 +114,11 @@ If you want to get all safe phases for just a single junction in a SUMO net, jus
 </div>
 <p><strong>Usage for many junctions:</strong>
 If you want to get all safe phases for many junctions (e.g. all tls controlled junctions in a net) you probably want to modify the <code class="docutils literal notranslate"><span class="pre">get_safe_phases.py</span></code> script slightly.<br />
-I haven’t tested how much of a slowdown this actually is but you probably don’t want to read and parse the net xml file in each function call.</p>
-<p>Instead I recommend doing the following:<br />
+I haven’t tested how much of a slowdown this actually is, but you probably don’t want to read and parse the net XML file in each function call.</p>
+<p>Instead, I recommend doing the following:<br />
 Modify the script as follows, move the read and parse part out of the function and store the net_xml in a variable that can be passed to or is accessible by the function.<br />
-Then list all junction IDs for which you want to calculate the safe phases and iterate over the list and call the funtion for each junction ID. The function itself should be pretty fast although it most likely can be further optimized.</p>
-<p>If you want to call the function for each tls controlled junction in a net I recommend you list all tls controlled junctions IDs using a regex on the xml file.<br />
+Then list all junction IDs for which you want to calculate the safe phases and iterate over the list and call the funtion for each junction ID. The function itself should be pretty fast, although it most likely can be further optimized.</p>
+<p>If you want to call the function for each tls controlled junction in a net I recommend you list all tls controlled junctions IDs using a regex on the XML file.<br />
 The code could look like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="c1"># read net xml</span>
@@ -157,6 +158,7 @@ The code could look like this:</p>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">get_safe_phases.py</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">tools</a></li>
 </ul>
 
 <div class="relations">
@@ -165,6 +167,7 @@ The code could look like this:</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">Tools Usage</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Tools Usage</a></li>
+      <li>Next: <a href="../modules.html" title="next chapter">tools</a></li>
   </ul></li>
   </ul></li>
 </ul>

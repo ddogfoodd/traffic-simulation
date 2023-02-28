@@ -4,14 +4,14 @@ import itertools
 import warnings
 
 def get_safe_phases(net_xml_path: str, junction_id: str):
-    """ For a given traffic-light-controlled junction return all connection combinations that can receive a green signal at the same time without leading to collisions.
-    
-    - Prior Requirements: 
-    - Inputs: path to SUMO net xml file as string, junction ID as string
-      - if the given junction_id corresponds to a junction not controlles by a tls, the script will throw a warning
-      - if you want to run this function for each junction controlled by a tls in a net xml file consider moving the xml read and parse out of the function and do it only once, then use a regex to find all junction IDs controlled by a tls and run the function for each of those (regex could look something like this: junction id=.* type=“traffic_light”)
-    - Returns (two values): the number of connections(= number of tls) in the given junction as int and all safe phase combinations as list of lists where each inner list is a combination of connections that can share green signals without colliding
-    - Performance: The function is sufficiently fast for our purpose but can probably be optimized further.
+    """For a given traffic-light-controlled junction return all connection combinations that can receive a green signal at the same time without leading to collisions.
+
+    :param net_xml_path: Path to SUMO net xml file
+    :type net_xml_path: str
+    :param junction_id: SUMO junction ID
+    :type junction_id: str
+    :return: Two values: the number of connections in the junction & List of all safe phase combinations as list of lists where each inner list is a combination of connections that can share green signals without colliding
+    :rtype: int, list
     """
     
     # read and parse SUMO net xml file

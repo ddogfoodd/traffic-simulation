@@ -41,13 +41,13 @@
 <h2>Basic installation of SUMO + simple verification to test sample working code<a class="headerlink" href="#basic-installation-of-sumo-simple-verification-to-test-sample-working-code" title="Permalink to this heading">¶</a></h2>
 <section id="installation-instructions">
 <h3>Installation instructions:<a class="headerlink" href="#installation-instructions" title="Permalink to this heading">¶</a></h3>
-<p>Installation of SUMO is different for different platforms (Windows, macOS and Linux). It is pretty straight forward, click the SUMO logo below for detailed instructions.  <em>Note : Update your operating system before installing SUMO to ensure all dependencies are fulfilled.</em>
+<p>Installation of SUMO is different for different platforms (Windows, macOS and Linux). It is pretty straightforward, click the SUMO logo below for detailed instructions.  <em>Note : Update your operating system before installing SUMO to ensure all dependencies are fulfilled.</em>
 <a class="reference external" href="https://sumo.dlr.de/docs/Installing/index.html"><img alt="" src="https://fileinfo.com/img/icons/files/128/sumocfg-11490.png" /></a></p>
 </section>
 <section id="installation-instructions-for-ovgu-iks-cluster-remote-machines">
 <h3>Installation instructions for OVGU IKS cluster remote machines<a class="headerlink" href="#installation-instructions-for-ovgu-iks-cluster-remote-machines" title="Permalink to this heading">¶</a></h3>
 <p>If you want to use SUMO on a remote machine of the OVGU IKS cluster, you might not have the permissions to follow SUMO’s <a class="reference external" href="https://sumo.dlr.de/docs/Installing/index.html#linux">Linux installation instructions</a>.<br />
-Instead you can install SUMO using the Python package manager <code class="docutils literal notranslate"><span class="pre">pip</span></code> without root permissions.</p>
+Instead, you can install SUMO using the Python package manager <code class="docutils literal notranslate"><span class="pre">pip</span></code> without root permissions.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>sumo
 </pre></div>
 </div>
@@ -62,18 +62,18 @@ See examples for <code class="docutils literal notranslate"><span class="pre">tr
 </section>
 <section id="optional-test-and-verify-sumo">
 <h3>(Optional) Test and verify SUMO<a class="headerlink" href="#optional-test-and-verify-sumo" title="Permalink to this heading">¶</a></h3>
-<p>To test if installed SUMO is working as intended you can run the scripts in the <a class="reference external" href="https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/tree/main/sumobasesimulation"><code class="docutils literal notranslate"><span class="pre">sumobasesimulation</span></code> directory</a>.</p>
-<p>For creating a simple grid network run :</p>
+<p>To test if installed SUMO is working as intended, you can run the scripts in the <a class="reference external" href="https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/tree/main/sumobasesimulation"><code class="docutils literal notranslate"><span class="pre">sumobasesimulation</span></code> directory</a>.</p>
+<p>For creating a simple grid network, run :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>createsimulation.py
 </pre></div>
 </div>
-<p>You can modify the size of the grid , number of vehicles and number of lanes before running the above script.
+<p>You can modify the size of the grid, number of vehicles and number of lanes before running the above script.
 Once you run this script the configuration files , route files and network files are all created.</p>
 <p>To check if the installed SUMO works along with the created simulation run :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>verify.py
 </pre></div>
 </div>
-<p>In the above script you can change the following parameter to run it either in GUI mode or command-line mode.</p>
+<p>In the above script, you can change the following parameter to run it either in GUI mode or command-line mode.</p>
 <blockquote>
 <div><p>–sumo_cmd_env  , values = [sumo,sumo-gui]</p>
 </div></blockquote>
@@ -132,6 +132,7 @@ See <a class="reference external" href="https://code.ovgu.de/ai-lab/projects/pas
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">tools</a></li>
 </ul>
 
 <div class="relations">

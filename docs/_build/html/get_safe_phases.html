@@ -17,6 +17,8 @@
     <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="traci_helpers module" href="traci_helpers.html" />
+    <link rel="prev" title="tools" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,14 +41,20 @@
 <dt class="sig sig-object py" id="get_safe_phases.get_safe_phases">
 <span class="sig-prename descclassname"><span class="pre">get_safe_phases.</span></span><span class="sig-name descname"><span class="pre">get_safe_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net_xml_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junction_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_safe_phases.get_safe_phases" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a given traffic-light-controlled junction return all connection combinations that can receive a green signal at the same time without leading to collisions.</p>
-<ul class="simple">
-<li><p>Prior Requirements:</p></li>
-<li><p>Inputs: path to SUMO net xml file as string, junction ID as string
-- if the given junction_id corresponds to a junction not controlles by a tls, the script will throw a warning
-- if you want to run this function for each junction controlled by a tls in a net xml file consider moving the xml read and parse out of the function and do it only once, then use a regex to find all junction IDs controlled by a tls and run the function for each of those (regex could look something like this: junction id=.* type=“traffic_light”)</p></li>
-<li><p>Returns (two values): the number of connections(= number of tls) in the given junction as int and all safe phase combinations as list of lists where each inner list is a combination of connections that can share green signals without colliding</p></li>
-<li><p>Performance: The function is sufficiently fast for our purpose but can probably be optimized further.</p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>net_xml_path</strong> (<em>str</em>) – Path to SUMO net xml file</p></li>
+<li><p><strong>junction_id</strong> (<em>str</em>) – SUMO junction ID</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Two values: the number of connections in the junction &amp; List of all safe phase combinations as list of lists where each inner list is a combination of connections that can share green signals without colliding</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, list</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -69,15 +77,24 @@
 
 <h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sumo/index.html">SUMO Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">get_safe_phases module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traci_helpers.html">traci_helpers module</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">tools</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">tools</a></li>
+      <li>Next: <a href="traci_helpers.html" title="next chapter">traci_helpers module</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

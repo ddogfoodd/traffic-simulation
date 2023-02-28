@@ -37,24 +37,24 @@
             
   <section id="osm-web-wizard-for-sumo">
 <h1>OSM Web Wizard for SUMO<a class="headerlink" href="#osm-web-wizard-for-sumo" title="Permalink to this heading">¶</a></h1>
-<p><strong>Use to convert Open Street Map data to SUMO config file</strong></p>
+<p><strong>Convert Open Street Map data to SUMO config file</strong></p>
 <p><strong>Links</strong>:<br />
 <a class="reference external" href="https://sumo.dlr.de/docs/Networks/Import/OpenStreetMap.html">More detailed tutorial</a><br />
 <a class="reference external" href="https://sumo.dlr.de/docs/Tools/Import/OSM.html">osmWebWizard.py doc</a></p>
-<p><strong>How to use (tested on MacOS):</strong></p>
+<p><strong>How to use (tested on macOS):</strong></p>
 <ul class="simple">
 <li><p>seems to come preinstalled with SUMO</p></li>
-<li><p>If the MacOS Application <code class="docutils literal notranslate"><span class="pre">OSM</span> <span class="pre">Web</span> <span class="pre">Wizard.app</span></code> doesn’t work, use the CLI to start it</p></li>
+<li><p>If the macOS Application <code class="docutils literal notranslate"><span class="pre">OSM</span> <span class="pre">Web</span> <span class="pre">Wizard.app</span></code> doesn’t work, use the CLI to start it</p></li>
 <li><p><strong>BUG:</strong> Sometimes the OSM Web Wizard throws an FileNotFoundError, an easy fix is to restart the OSM Web Wizard eg. by rerunning the python command in 2</p></li>
 </ul>
 <ol class="arabic simple">
-<li><p>Find your <code class="docutils literal notranslate"><span class="pre">SUMO_HOME</span></code> dir, eg. by looking at your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (MacOS default might be <code class="docutils literal notranslate"><span class="pre">usr/local/opt/sumo/share/sumo</span></code>)</p></li>
+<li><p>Find your <code class="docutils literal notranslate"><span class="pre">SUMO_HOME</span></code> dir, e.g. by looking at your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (macOS default might be <code class="docutils literal notranslate"><span class="pre">/usr/local/opt/sumo/share/sumo</span></code>)</p></li>
 <li><p>Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">&lt;SUMO_HOME&gt;/tools/osmWebWizard.py</span></code>, replacing <code class="docutils literal notranslate"><span class="pre">SUMO_HOME</span></code> according to your path</p></li>
 <li><p>This will open a web tool which allows configuration for the OSM export</p></li>
 <li><p>Edit preferences and click <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Scenario</span></code>, this will take some time then should open a SUMO window with the generated configuration</p></li>
 </ol>
 <ul class="simple">
-<li><p>For enhancing the generated scenario read the <a class="reference external" href="https://sumo.dlr.de/docs/Networks/Import/OpenStreetMap.html">more detailed tutorial</a></p></li>
+<li><p>For enhancing the generated scenario, read the <a class="reference external" href="https://sumo.dlr.de/docs/Networks/Import/OpenStreetMap.html">more detailed tutorial</a></p></li>
 </ul>
 </section>
 
@@ -83,6 +83,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">tools</a></li>
 </ul>
 
 <div class="relations">
