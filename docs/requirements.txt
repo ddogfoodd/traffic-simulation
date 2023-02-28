@@ -1,3 +1,4 @@
 myst-parser
+sphinx-rtd-theme
 numpy
 beautifulsoup4
