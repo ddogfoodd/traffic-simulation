@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>traci_helpers module &#8212; traffic-simulation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-traci_helpers">
+<span id="traci-helpers-module"></span><h1>traci_helpers module<a class="headerlink" href="#module-traci_helpers" title="Permalink to this heading">¶</a></h1>
+<p>Helper functions building on TraCI</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_all_state_definition">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_all_state_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traffic_lights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_all_state_definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_emissions">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_emissions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vehicles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_emissions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_lane_density">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_lane_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">laneID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_lane_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the density of a given lane, 
+i.e. number of vehicles in relation to the lane length.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>laneID<span class="classifier">str</span></dt><dd><p>ID of the SUMO lane for which to calculate the density.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>float</dt><dd><p>Lane density.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_state">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tlsID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given tls return the average lane density for each 
+controlled lane, 
+i.e. number of vehicles in relation to the lane length.</p>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>tlsID<span class="classifier">str</span></dt><dd><p>ID of the SUMO traffic light system for which lanes to calculate the densities.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>Returns<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>list</dt><dd><p>List of lane densities.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_state_definition">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_state_definition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tlsID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_state_definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_vehicle_numbers">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_vehicle_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lanes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_vehicle_numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each given lane return the number of vehicles in those lanes.</p>
+<section id="id3">
+<h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>lanes<span class="classifier">list</span></dt><dd><p>IDs of the SUMO lanes for which to count the number of vehicles.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>Returns<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>dict</dt><dd><p>Dictionary where lanes are the keys and number of vehicles on those lanes are the values.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.get_waiting_time">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">get_waiting_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lanes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.get_waiting_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.getnetworkwaitingtime">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">getnetworkwaitingtime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vehicles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.getnetworkwaitingtime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.getqueuelen">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">getqueuelen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">junction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.getqueuelen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="traci_helpers.phaseDuration">
+<span class="sig-prename descclassname"><span class="pre">traci_helpers.</span></span><span class="sig-name descname"><span class="pre">phaseDuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">junction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#traci_helpers.phaseDuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">traffic-simulation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sumo/index.html">SUMO Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools Usage</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, AiLab.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/traci_helpers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
