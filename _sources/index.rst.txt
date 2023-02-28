@@ -12,3 +12,4 @@ Welcome to traffic-simulation's documentation!
 
    sumo/index
    tools/index
+   modules

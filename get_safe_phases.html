@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get_safe_phases module &#8212; traffic-simulation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="traci_helpers module" href="traci_helpers.html" />
+    <link rel="prev" title="tools" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-get_safe_phases">
+<span id="get-safe-phases-module"></span><h1>get_safe_phases module<a class="headerlink" href="#module-get_safe_phases" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="get_safe_phases.get_safe_phases">
+<span class="sig-prename descclassname"><span class="pre">get_safe_phases.</span></span><span class="sig-name descname"><span class="pre">get_safe_phases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">net_xml_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">junction_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_safe_phases.get_safe_phases" title="Permalink to this definition">¶</a></dt>
+<dd><p>For a given traffic-light-controlled junction return all connection combinations that can receive a green signal at the same time without leading to collisions.</p>
+<ul class="simple">
+<li><p>Prior Requirements:</p></li>
+<li><p>Inputs: path to SUMO net xml file as string, junction ID as string
+- if the given junction_id corresponds to a junction not controlles by a tls, the script will throw a warning
+- if you want to run this function for each junction controlled by a tls in a net xml file consider moving the xml read and parse out of the function and do it only once, then use a regex to find all junction IDs controlled by a tls and run the function for each of those (regex could look something like this: junction id=.* type=“traffic_light”)</p></li>
+<li><p>Returns (two values): the number of connections(= number of tls) in the given junction as int and all safe phase combinations as list of lists where each inner list is a combination of connections that can share green signals without colliding</p></li>
+<li><p>Performance: The function is sufficiently fast for our purpose but can probably be optimized further.</p></li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">traffic-simulation</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sumo/index.html">SUMO Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">get_safe_phases module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traci_helpers.html">traci_helpers module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">tools</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">tools</a></li>
+      <li>Next: <a href="traci_helpers.html" title="next chapter">traci_helpers module</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, AiLab.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/get_safe_phases.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
