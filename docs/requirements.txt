@@ -3,3 +3,4 @@ sphinx-rtd-theme
 numpy
 beautifulsoup4
 traci
+sphinx==5.3.0
