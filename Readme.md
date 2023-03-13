@@ -14,7 +14,7 @@ To install and test SUMO refer to our [installation/setup doc](https://code.ovgu
 - `get_safe_phases.py` - calculate set of connections that can share the same green phase without leading to collisions ([More Info](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/docs/tools/get_safe_phases.md), [Link to file](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/tools/get_safe_phases.py))
 
 ### Docs:
-The documentation is generated from markdown files in the `docs` dir and docstrings in python scripts, [find the documentation here](https://jalemann.github.io/traffic-simulation/).
+[The documentation](https://jalemann.github.io/traffic-simulation/) is generated from markdown files in the `docs` dir and docstrings in python scripts.
 
 ### Contributing:
 Feel free to contribute to this repo by adding more tools or docs or even fix bugs or expand functionality in existing tools.  
