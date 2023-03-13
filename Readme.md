@@ -12,6 +12,7 @@ To install and test SUMO refer to our [installation/setup doc](https://code.ovgu
 - `createsimulation.py` - create SUMO files for a grid world ([Link to file](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/sumobasesimulation/createsimulation.py))
 - `verify.py` - verify that SUMO installation works ([Link to file](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/sumobasesimulation/verify.py))
 - `get_safe_phases.py` - calculate set of connections that can share the same green phase without leading to collisions ([More Info](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/docs/tools/get_safe_phases.md), [Link to file](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/tools/get_safe_phases.py))
+- `gym_env_graph_rl.py` - [Gymnasium (previously gym)](https://gymnasium.farama.org/) environment that was used for Graph RL with SUMO data ([Link to file](https://code.ovgu.de/ai-lab/projects/pascal/traffic-simulation/-/blob/main/reinforcement-learning/gym_env_graph_rl.py))
 
 ### Docs:
 [The documentation](https://jalemann.github.io/traffic-simulation/) is generated from markdown files in the `docs` dir and docstrings in python scripts.
