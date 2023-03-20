@@ -70,7 +70,7 @@ class SumoGraphEnviroment(gym.Env):
         self.isFirstReset = True
 
     def startTraci(self):
-        # TODO: make SUMO parameters optional machen and add option for GUI usage
+        # TODO: make SUMO parameters optional and add option for GUI usage
         traci.start(
             [self.sumo_path,
              "-c", self.sumo_cfg_path,
