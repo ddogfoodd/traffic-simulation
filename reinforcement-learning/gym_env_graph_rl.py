@@ -194,7 +194,7 @@ class SumoGraphEnviroment(gym.Env):
         return observation, reward, terminated, False, info
 
     def reward(self, tls_action_penalty):
-        queue_length = [0. for _ in range(len(self.tls_to_lanes.keys()))]
+        queue_length = [0.] * len(self.tls_to_lanes.keys())
         for idx, (tls, lanes) in enumerate(self.tls_to_lanes.items()):
             for lane in lanes:
                 queue_length[idx] -= self.lane_last_step_halting_number[lane]
