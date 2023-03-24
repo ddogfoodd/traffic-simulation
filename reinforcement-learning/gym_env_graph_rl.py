@@ -18,11 +18,20 @@ import xml.etree.ElementTree as ET
 
 class SumoGraphEnviroment(gym.Env):
 
-    def __init__(self, simulation_steps: int, simulation_start_steps: int = 0, simulation_yellow_steps: int = 0,
-                 simulation_step_size: int = 1, sumo_path: str = "sumo",
-                 sumo_net_path: str = "../xml/scenario1/grid.net.xml",
-                 sumo_cfg_path: str = "../xml/scenario1/grid.sumocfg", sumo_warning: bool = False,
-                 sumo_verbose: bool = False, sumo_routing_thread: int = 4, sumo_time_to_teleport: int = -1):
+    def __init__(
+        self,
+        simulation_steps: int,
+        simulation_start_steps: int = 0,
+        simulation_yellow_steps: int = 0,
+        simulation_step_size: int = 1,
+        sumo_path: str = "sumo",
+        sumo_net_path: str = "../xml/scenario1/grid.net.xml",
+        sumo_cfg_path: str = "../xml/scenario1/grid.sumocfg",
+        sumo_warning: bool = False,
+        sumo_verbose: bool = False,
+        sumo_routing_thread: int = 4,
+        sumo_time_to_teleport: int = -1
+    ):
         super().__init__()
         self.simulation_steps = simulation_steps
         self.simulation_start_steps = simulation_start_steps
@@ -46,8 +55,7 @@ class SumoGraphEnviroment(gym.Env):
         self.create_adj()
 
         self.node_to_tls = {v: k for k, v in self.tls_to_node.items()}
-        self.tls_to_lanes = {tls: list(set(traci.trafficlight.getControlledLanes(tls))) for tls in
-                             self.tls_to_node.keys()}
+        self.tls_to_lanes = {tls: list(set(traci.trafficlight.getControlledLanes(tls))) for tls in self.tls_to_node.keys()}
         lane_list = list(set(filter(lambda x: ":" not in str(x), traci.lane.getIDList())))
         self.lane_last_step_halting_number = {lane: 0 for lane in lane_list}
         self.lane_lengths = {lane: traci.lane.getLength(lane) for lane in lane_list}
@@ -72,15 +80,17 @@ class SumoGraphEnviroment(gym.Env):
     def startTraci(self):
         # TODO: make SUMO parameters optional and add option for GUI usage
         traci.start(
-            [self.sumo_path,
-             "-c", self.sumo_cfg_path,
-             "--time-to-teleport", str(self.sumo_ttt),
-             "--seed", str(random.randint(1, 999999)),
-             "--verbose", str(self.sumo_verbose),
-             "--routing-threads", str(self.sumo_routing_threads),
-             "--max-depart-delay", str(self.simulation_start_steps),
-             "--no-warnings", str(self.sumo_warning),
-             ])
+            [
+                self.sumo_path,
+                "-c", self.sumo_cfg_path,
+                "--time-to-teleport", str(self.sumo_ttt),
+                "--seed", str(random.randint(1, 999999)),
+                "--verbose", str(self.sumo_verbose),
+                "--routing-threads", str(self.sumo_routing_threads),
+                "--max-depart-delay", str(self.simulation_start_steps),
+                "--no-warnings", str(self.sumo_warning),
+            ]
+        )
         for _ in range(self.simulation_start_steps):
             traci.simulationStep()
 
