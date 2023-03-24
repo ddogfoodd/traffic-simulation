@@ -199,9 +199,10 @@ class SumoGraphEnviroment(gym.Env):
         reward = self.reward(tls_action_penalty)
         observation = self._get_obs()
 
+        truncated = False
         info = None
 
-        return observation, reward, terminated, False, info
+        return observation, reward, terminated, truncated, info
 
     def reward(self, tls_action_penalty):
         queue_length = [0.] * len(self.tls_to_lanes.keys())
