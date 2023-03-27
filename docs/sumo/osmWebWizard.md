@@ -1,5 +1,10 @@
 # OSM Web Wizard for SUMO
 
+**Warning:**  
+**The OSM Web Wizard is a convenient way to select OSM Areas and convert them into SUMO net files.  
+However, the OSM Web Wizard doesn't take some options into account which could be set when using `netconvert`. Netconvert and it's many options should be used for more accurate data exports whereas OSM Web Wizard can be used for more convenient exports.  
+E.g. turning directions of lanes are only guessed by OSMWW**
+
 **Convert Open Street Map data to SUMO config file**  
   
 **Links**:  
