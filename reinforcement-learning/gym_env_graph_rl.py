@@ -3,7 +3,7 @@ from typing import Tuple, List, Optional
 
 from gym.core import ObsType
 
-from src.Constants import EPS
+#from src.Constants import EPS
 from src.Training.Utils import getPhasesNotYellowForTls
 
 try:
@@ -124,7 +124,8 @@ class SumoGraphEnviroment(gym.Env):
                 features[idx, lane_idx, 1] = self.lane_last_step_halting_number[lane]
         maxima = np.max(features, axis=-2)
         maxima = maxima[:, None, :]
-        features /= maxima + EPS
+        #features /= maxima + EPS
+        features /= maxima + 0.001
         features = np.reshape(features, (TLS_CNT, LANES * FEATURES))
         features = np.append(features, phases, axis=-1)
 
