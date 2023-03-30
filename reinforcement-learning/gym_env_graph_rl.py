@@ -20,10 +20,7 @@ def getPhasesNotYellowForTls(tls):
         if ('y' not in phase.state and 'Y' not in phase.state) and not len(str(phase.state).replace('r', '')) == 0:
             return_phases.append(phase)
 
-    def state(_phase_):
-        return _phase_.state
-
-    return sorted(return_phases, key=state)
+    return sorted(return_phases, key=lambda phase: phase.state)
 
 class SumoGraphEnviroment(gym.Env):
 
