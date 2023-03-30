@@ -151,3 +151,6 @@ Temporary Items
 
 # IDE settings
 .vscode
+
+# sumo outputs
+*.output*.xml

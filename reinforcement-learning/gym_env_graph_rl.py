@@ -3,10 +3,24 @@ from typing import Tuple, List, Optional
 
 from gym.core import ObsType
 
+# enable usage of local traci of sumo/tools if SUMO_HOME environment variable is set
+import  os,  sys
+if  'SUMO_HOME'  in  os.environ:
+    tools  =  os.path.join(os.environ['SUMO_HOME'],  'tools')
+    sys.path.append(tools)
+else:
+    sys.exit("please  declare  environment  variable  'SUMO_HOME'")
+import traci
+
+# libsumo has a huge performance advantage over traci
+# however it comes with some limitations (see: https://sumo.dlr.de/docs/Libsumo.html)
 try:
     import libsumo as traci
 except:
     import traci
+# uncomment to print traci instance which is used
+#print("TRACIPATH:", traci.__file__)
+
 import gym
 
 import numpy as np
