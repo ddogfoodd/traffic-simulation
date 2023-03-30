@@ -3,8 +3,6 @@ from typing import Tuple, List, Optional
 
 from gym.core import ObsType
 
-from src.Training.Utils import getPhasesNotYellowForTls
-
 try:
     import libsumo as traci
 except:
@@ -14,6 +12,18 @@ import gym
 import numpy as np
 import xml.etree.ElementTree as ET
 
+# helper function to return phases a tls program contains that do not contain yellow states and not only red states
+def getPhasesNotYellowForTls(tls):
+    phases = list(traci.trafficlight.getAllProgramLogics(tls)[0].phases)
+    return_phases = []
+    for phase in phases:
+        if ('y' not in phase.state and 'Y' not in phase.state) and not len(str(phase.state).replace('r', '')) == 0:
+            return_phases.append(phase)
+
+    def state(_phase_):
+        return _phase_.state
+
+    return sorted(return_phases, key=state)
 
 class SumoGraphEnviroment(gym.Env):
 
